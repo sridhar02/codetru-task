@@ -2,23 +2,23 @@ import React, { useState } from "react";
 
 import { SidebarItem } from "./SidebarItem";
 
-import Logo from "/public/assets/Logo.svg";
+import Logo from "/assets/Logo.svg";
 // import  Dashboard from ""
 
 const icons = {
   dashboard: "/public/assets/dashboard.svg",
   employees: "/public/assets/employees.svg",
-  placements: "/public/assets/placements.svg",
-  timeSheets: "/public/assets/time-sheets.svg",
-  sales: "/public/assets/sales.svg",
-  ledger: "/public/assets/ledger.svg",
-  balanceSheets: "/public/assets/balance-sheets.svg",
-  expenseManagement: "/public/assets/expense-management.svg",
-  payroll: "/public/assets/payroll.svg",
-  clients: "/public/assets/clients.svg",
-  immigration: "/public/assets/immigration.svg",
-  employeeSelfService: "/public/assets/employee-self-service.svg",
-  arrow: "/public/assets/arrow.svg",
+  placements: "/assets/placements.svg",
+  timeSheets: "/assets/time-sheets.svg",
+  sales: "/assets/sales.svg",
+  ledger: "/assets/ledger.svg",
+  balanceSheets: "/assets/balance-sheets.svg",
+  expenseManagement: "/assets/expense-management.svg",
+  payroll: "/assets/payroll.svg",
+  clients: "/assets/clients.svg",
+  immigration: "/assets/immigration.svg",
+  employeeSelfService: "/assets/employee-self-service.svg",
+  arrow: "/assets/arrow.svg",
 };
 
 export const Sidebar = () => {
