@@ -6,8 +6,8 @@ import Logo from "/assets/Logo.svg";
 // import  Dashboard from ""
 
 const icons = {
-  dashboard: "/public/assets/dashboard.svg",
-  employees: "/public/assets/employees.svg",
+  dashboard: "/assets/dashboard.svg",
+  employees: "/assets/employees.svg",
   placements: "/assets/placements.svg",
   timeSheets: "/assets/time-sheets.svg",
   sales: "/assets/sales.svg",
