@@ -43,9 +43,9 @@ export const Sidebar = () => {
       <div className="flex gap-4 items-center">
         <img src={Logo} alt="logo" className="w-16 h-16" />
         {expanded && (
-          <div className="flex flex-col items-center">
-            <div className="font-bold text-lg "> BrownMonster</div>
-            <span className="text-gray-400 text-sm">Efficiency made easy</span>
+          <div className="flex flex-col items-start">
+            <div className="font-bold text-2xl"> BrownMonster</div>
+            <span className="text-sm text-black">Efficiency made easy</span>
           </div>
         )}
       </div>
