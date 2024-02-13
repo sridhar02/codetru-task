@@ -80,7 +80,7 @@ export const GeneralDetails = ({ onNext }) => {
       )}
       {steps === 2 && (
         <div className="shadow-md border-2 rounded-md p-4 px-8 w-full">
-          <h1 className="text-lg">Contact Details</h1>
+          <h1 className="text-lg mb-6">Contact Details</h1>
           <div className="flex w-full gap-4">
             <div className="flex flex-col border rounded-lg p-2 px-4 w-full">
               <label

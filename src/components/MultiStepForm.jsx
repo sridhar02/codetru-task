@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Address } from "./Address";
 import { GeneralDetails } from "./GeneralDetails";
 import { PayConfiguration } from "./PayConfiguration";
+import { CheckCircleIcon } from "@heroicons/react/solid"; // Importing icons from Heroicons
 
-const StepIndicator = ({ step }) => {
+const StepIndicator1 = ({ step }) => {
   const stepStatus = [
     { id: 1, completed: step > 1, title: "General Details" },
     { id: 2, completed: step > 2, title: "Address" },
@@ -25,6 +26,42 @@ const StepIndicator = ({ step }) => {
           {s.id < 3 && <div className="w-48 border-2" />}
         </div>
       ))}
+    </div>
+  );
+};
+
+const StepIndicator = ({ step }) => {
+  const steps = [
+    { id: 1, name: "General Details", completed: step > 1 },
+    { id: 2, name: "Address", completed: step > 2 },
+    { id: 3, name: "Pay Configuration", completed: step > 3 },
+
+    // Add more steps as needed
+  ];
+
+  return (
+    <div className="flex items-center justify-center">
+      {steps.map((step, index) => (
+        <div key={step.name} className="flex items-center">
+          <div
+            className={`border-2 border-blue-600 p-2 rounded-full ${
+              step.completed && "bg-blue-600"
+            }`}
+          >
+            {step.completed ? (
+              <CheckCircleIcon className="w-6 h-6 text-white" />
+            ) : (
+              <div className={`w-6 h-6 rounded-full ${"bg-blue-600"}`} />
+            )}
+          </div>
+
+          <div className="flex-auto border-t-2 transition duration-500 ease-in-out border-blue-600"></div>
+          <span className="mx-2 text-blue-600">{step.name}</span>
+          {step.id < 3 && <div className="w-40 border-2 mx-2" />}
+        </div>
+      ))}
+      {/* <div className="w-6 h-6 rounded-full border-2 border-blue-600"></div>{" "} */}
+      {/* This is for the last step if it's not completed */}
     </div>
   );
 };
