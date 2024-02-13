@@ -2,23 +2,23 @@ import React, { useState } from "react";
 
 import { SidebarItem } from "./SidebarItem";
 
-import Logo from "../assets/Logo.svg";
+import Logo from "/public/assets/Logo.svg";
 // import  Dashboard from ""
 
 const icons = {
-  dashboard: "/src/assets/dashboard.svg",
-  employees: "/src/assets/employees.svg",
-  placements: "/src/assets/placements.svg",
-  timeSheets: "/src/assets/time-sheets.svg",
-  sales: "/src/assets/sales.svg",
-  ledger: "/src/assets/ledger.svg",
-  balanceSheets: "/src/assets/balance-sheets.svg",
-  expenseManagement: "/src/assets/expense-management.svg",
-  payroll: "/src/assets/payroll.svg",
-  clients: "/src/assets/clients.svg",
-  immigration: "/src/assets/immigration.svg",
-  employeeSelfService: "/src/assets/employee-self-service.svg",
-  arrow: "/src/assets/arrow.svg",
+  dashboard: "/public/assets/dashboard.svg",
+  employees: "/public/assets/employees.svg",
+  placements: "/public/assets/placements.svg",
+  timeSheets: "/public/assets/time-sheets.svg",
+  sales: "/public/assets/sales.svg",
+  ledger: "/public/assets/ledger.svg",
+  balanceSheets: "/public/assets/balance-sheets.svg",
+  expenseManagement: "/public/assets/expense-management.svg",
+  payroll: "/public/assets/payroll.svg",
+  clients: "/public/assets/clients.svg",
+  immigration: "/public/assets/immigration.svg",
+  employeeSelfService: "/public/assets/employee-self-service.svg",
+  arrow: "/public/assets/arrow.svg",
 };
 
 export const Sidebar = () => {
