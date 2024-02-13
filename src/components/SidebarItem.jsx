@@ -1,7 +1,7 @@
 export const SidebarItem = ({ iconPath, title, expanded }) => {
   const salesExpanded = false;
   return (
-    <div className="flex items-center space-x-2 p-2 text-white cursor-pointer hover:bg-gray-700 w-full">
+    <div className="flex items-center space-x-2 p-2 text-white cursor-pointer hover:bg-gray-200 w-full hover:rounded-md hover:p-2">
       <img src={iconPath} alt="" className="h-6 w-6" />
       {expanded && <span className="text-lg text-black pl-4">{title}</span>}
       {title === "Sales" && salesExpanded && (
