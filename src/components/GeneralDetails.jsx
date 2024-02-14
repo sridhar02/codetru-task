@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const GeneralDetails = ({ onNext }) => {
   const [steps, setSteps] = useState(1);

@@ -2,7 +2,6 @@ import { useState } from "react";
 
 export const SidebarItem = ({ iconPath, title, expanded }) => {
   const [isOpen, setIsOpen] = useState("");
-  const salesExpanded = false;
 
   return (
     <div

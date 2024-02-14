@@ -10,8 +10,6 @@ const StepIndicator = ({ step }) => {
     { id: 1, name: "General Details", completed: step > 1 },
     { id: 2, name: "Address", completed: step > 2 },
     { id: 3, name: "Pay Configuration", completed: step > 3 },
-
-    // Add more steps as needed
   ];
 
   return (
@@ -35,13 +33,9 @@ const StepIndicator = ({ step }) => {
           {step.id < 3 && <div className="w-40 border-2 mx-2" />}
         </div>
       ))}
-      {/* <div className="w-6 h-6 rounded-full border-2 border-blue-600"></div>{" "} */}
-      {/* This is for the last step if it's not completed */}
     </div>
   );
 };
-
-// Your existing form components (GeneralDetails, Address, PayConfiguration) go here
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
@@ -56,7 +50,7 @@ const MultiStepForm = () => {
       setStep((prevStep) => prevStep + 1);
     }
   };
-  const prevStep = () => setStep((prevStep) => prevStep - 1);
+  // const prevStep = () => setStep((prevStep) => prevStep - 1);
 
   function closeModal() {
     setIsOpen(false);
