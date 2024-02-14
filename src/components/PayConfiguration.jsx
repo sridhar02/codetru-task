@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 export const PayConfiguration = ({ onNext, step }) => {
   const [show, setShow] = useState(false);
@@ -26,8 +26,11 @@ export const PayConfiguration = ({ onNext, step }) => {
             />
             <div className="flex gap-2">
               {["ravi", "Ram", "vishal Raj", "Abhi", "Rahul Raj"].map(
-                (item) => (
-                  <div className="bg-gray-300 p-2 px-4 rounded-full flex justify-center items-center">
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-300 p-2 px-4 rounded-full flex justify-center items-center"
+                  >
                     {item}{" "}
                     <span className=" border-black rounded-full ml-4">
                       <svg
@@ -68,8 +71,11 @@ export const PayConfiguration = ({ onNext, step }) => {
             />
             <div className="flex gap-2">
               {["ravi", "Ram", "vishal Raj", "Abhi", "Rahul Raj"].map(
-                (item) => (
-                  <div className="bg-gray-300 p-2 px-4 rounded-full flex justify-center items-center">
+                (item, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-300 p-2 px-4 rounded-full flex justify-center items-center"
+                  >
                     {item}{" "}
                     <span className=" border-black rounded-full ml-4">
                       <svg

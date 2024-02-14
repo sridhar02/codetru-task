@@ -1,34 +1,9 @@
-import React, { useState } from "react";
+import { useState, Fragment } from "react";
 import { Address } from "./Address";
 import { GeneralDetails } from "./GeneralDetails";
 import { PayConfiguration } from "./PayConfiguration";
-import { CheckCircleIcon } from "@heroicons/react/solid"; // Importing icons from Heroicons
-
-const StepIndicator1 = ({ step }) => {
-  const stepStatus = [
-    { id: 1, completed: step > 1, title: "General Details" },
-    { id: 2, completed: step > 2, title: "Address" },
-    { id: 3, completed: step > 3, title: "Pay Configuration" },
-  ];
-
-  return (
-    <div className="flex justify-center space-x-2 mb-4">
-      {stepStatus.map((s) => (
-        <div key={s.id} className="flex items-center gap-4">
-          <div
-            className={`w-12 h-12 rounded-full flex items-center justify-center ${
-              s.completed ? "bg-blue-500" : "bg-gray-200"
-            }`}
-          >
-            {s.completed ? "✓" : step === s.id ? "•" : ""}
-          </div>
-          <span>{s.title}</span>
-          {s.id < 3 && <div className="w-48 border-2" />}
-        </div>
-      ))}
-    </div>
-  );
-};
+import { CheckCircleIcon } from "@heroicons/react/solid";
+import { Dialog, Transition } from "@headlessui/react";
 
 const StepIndicator = ({ step }) => {
   const steps = [
@@ -41,7 +16,7 @@ const StepIndicator = ({ step }) => {
 
   return (
     <div className="flex items-center justify-center">
-      {steps.map((step, index) => (
+      {steps.map((step) => (
         <div key={step.name} className="flex items-center">
           <div
             className={`border-2 border-blue-600 p-2 rounded-full ${
@@ -70,24 +45,87 @@ const StepIndicator = ({ step }) => {
 
 const MultiStepForm = () => {
   const [step, setStep] = useState(1);
+  const [isOpen, setIsOpen] = useState(false);
 
-  const nextStep = () => setStep((prevStep) => prevStep + 1);
+  console.log(step);
+
+  const nextStep = () => {
+    if (step === 3) {
+      setIsOpen(true);
+    } else {
+      setStep((prevStep) => prevStep + 1);
+    }
+  };
   const prevStep = () => setStep((prevStep) => prevStep - 1);
 
+  function closeModal() {
+    setIsOpen(false);
+  }
+
   return (
-    <div className="mt-10 w-full">
-      <StepIndicator step={step} />
-      <div className="flex justify-center w-full">
-        {step === 1 && <GeneralDetails onNext={nextStep} />}
-        {step === 2 && <Address onNext={nextStep} />}
-        {step === 3 && (
-          <PayConfiguration
-            onSubmit={() => alert("Form Submitted")}
-            step={step}
-          />
-        )}
+    <>
+      <div className="mt-10 w-full">
+        <StepIndicator step={step} />
+        <div className="flex justify-center w-full">
+          {step === 1 && <GeneralDetails onNext={nextStep} />}
+          {step === 2 && <Address onNext={nextStep} />}
+          {step === 3 && <PayConfiguration onNext={nextStep} step={step} />}
+        </div>
       </div>
-    </div>
+      <Transition appear show={isOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-10" onClose={closeModal}>
+          <Transition.Child
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-black/25" />
+          </Transition.Child>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4 text-center">
+              <Transition.Child
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
+              >
+                <Dialog.Panel className=" flex flex-col justify-center items-center w-full max-w-md transform overflow-hidden rounded-2xl bg-white p-6 text-left align-middle shadow-xl transition-all">
+                  <img
+                    src="/assets/success.svg"
+                    alt=""
+                    className="h-40 w-40 my-5"
+                  />
+                  <div className="mt-2 ">
+                    <p className="text-xl  text-center text-green-700 mb-4">
+                      Congratulations
+                    </p>
+                    <p>Invite Link Successfully Sent to Rahul Raj</p>
+                  </div>
+
+                  <div className="mt-4">
+                    <button
+                      type="button"
+                      className="inline-flex justify-center rounded-md border border-transparent bg-blue-500  px-4 py-2 text-sm font-medium text-white focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                      onClick={closeModal}
+                    >
+                      Okay
+                    </button>
+                  </div>
+                </Dialog.Panel>
+              </Transition.Child>
+            </div>
+          </div>
+        </Dialog>
+      </Transition>
+    </>
   );
 };
 
