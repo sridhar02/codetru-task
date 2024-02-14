@@ -8,7 +8,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className="flex h-screen">
+    <div className="flex">
       <Sidebar />
       <div className="flex-1 w-full">
         <Navbar />
