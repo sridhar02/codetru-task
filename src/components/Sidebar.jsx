@@ -40,7 +40,7 @@ export const Sidebar = () => {
           className={expanded ? "rotate-180" : ""}
         />
       </button>
-      <div className="flex gap-4 items-center">
+      <div className="flex gap-2 items-center">
         <img src={Logo} alt="logo" className="w-16 h-16" />
         {expanded && (
           <div className="flex flex-col items-start">

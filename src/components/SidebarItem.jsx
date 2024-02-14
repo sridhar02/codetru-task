@@ -9,12 +9,15 @@ export const SidebarItem = ({ iconPath, title, expanded }) => {
         isOpen ? " flex-col justify-start" : ""
       }`}
     >
-      <div className="flex items-center w-full">
+      <div className="flex items-center">
         <img src={iconPath} alt="" className="h-6 w-6" />
         {expanded && <span className="text-lg text-black pl-4">{title}</span>}
         {title === "Sales" && (
           <div onClick={() => setIsOpen(!isOpen)}>
-            <img src="/assets/arrow.svg" className="rotate-90 ml-36" />{" "}
+            <img
+              src="/assets/arrow.svg"
+              className={`rotate-90 ${expanded ? "ml-36" : ""}`}
+            />{" "}
           </div>
         )}
       </div>
